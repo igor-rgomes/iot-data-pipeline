@@ -133,7 +133,7 @@ O dashboard exibirá visualizações como:
 ---
 
 # Evidências do funcionamento
-```bash
+
 Execução do ETL
 
 ![ETL](docs/imagens/01_etl_execucao.png)
@@ -173,7 +173,7 @@ Leituras por hora
 Temperatura máxima e mínima por dia
 
 ![MaxMin](docs/imagens/07_dashboard_max_min_dia.png)
-```
+
 ---
 
 # Resultados
