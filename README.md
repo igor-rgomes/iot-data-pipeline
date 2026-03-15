@@ -47,70 +47,63 @@ Etapas:
 # Estrutura do projeto
 
 iot-data-pipeline
-
+```bash
 data
 └── IOT-temp.csv
-
 docs
 └── imagens
-
 sql
 └── create_views.sql
-
 src
 ├── etl.py
 └── dashboard.py
-
 requirements.txt
 .gitignore
 README.md
-
+```
 ---
 
 # Execução do projeto
 
 ## 1 Clonar o repositório
-
+```bash
 git clone https://github.com/igor-rgomes/iot-data-pipeline.git
-
 cd iot-data-pipeline
-
+```
 ---
 
 ## 2 Criar ambiente virtual
-
+```bash
 python -m venv venv
-
+```
 Ativar ambiente virtual
-
 Windows
-
+```bash
 venv\Scripts\activate
-
+```
 Linux / Mac
-
+```bash
 source venv/bin/activate
-
+```
 ---
 
 ## 3 Instalar dependências
-
+```bash
 pip install -r requirements.txt
-
+```
 ---
 
 ## 4 Subir PostgreSQL com Docker
-
+```bash
 docker run --name postgres-iot -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=123456 -e POSTGRES_DB=iotdb -p 5432:5432 -d postgres
-
+```
 ---
 
 ## 5 Executar pipeline ETL
-
+```bash
 python src/etl.py
-
+```
 O ETL realiza:
-
 * leitura do CSV
 * limpeza e padronização dos dados
 * inserção no banco PostgreSQL
@@ -118,19 +111,19 @@ O ETL realiza:
 ---
 
 ## 6 Criar views analíticas
-
+```bash
 docker exec -it postgres-iot psql -U postgres -d iotdb
-
+```
 Executar o script SQL
-
+```bash
 \i sql/create_views.sql
-
+```
 ---
 
 ## 7 Executar dashboard
-
+```bash
 streamlit run src/dashboard.py
-
+```
 O dashboard exibirá visualizações como:
 
 * temperatura média por sala
@@ -140,7 +133,7 @@ O dashboard exibirá visualizações como:
 ---
 
 # Evidências do funcionamento
-
+```bash
 Execução do ETL
 
 ![ETL](docs/imagens/01_etl_execucao.png)
@@ -180,7 +173,7 @@ Leituras por hora
 Temperatura máxima e mínima por dia
 
 ![MaxMin](docs/imagens/07_dashboard_max_min_dia.png)
-
+```
 ---
 
 # Resultados
